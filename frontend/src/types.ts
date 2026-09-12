@@ -1,0 +1,3 @@
+export type Farm={id:string;user_id:string;name:string;village?:string|null;district:string;state:string;pincode?:string|null;latitude?:number|null;longitude?:number|null;area:number;unit:'acre'|'hectare';soil_type?:string|null;archived_at?:string|null}
+export type Crop={id:string;farm_id:string;crop_code:string;name:string;variety?:string|null;sowing_date:string;growth_stage:string;expected_harvest_date?:string|null;area:number;status:'active'|'archived'}
+export type Dashboard={farm:{id:string;name:string;district:string;state:string;area:number;unit:string};crop:{name:string;growth_stage:string;area:number};decision:{id:string;title:string;priority:string;why:string;evidence:string[];valid_until:string;state:string};weather:any;soil:any;risk:any;market:any}

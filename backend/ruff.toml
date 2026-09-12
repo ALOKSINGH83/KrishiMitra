@@ -1,0 +1,16 @@
+line-length = 150
+
+[lint]
+select = ["E", "F", "I", "W", "B", "DTZ"]
+ignore = [
+    # B008: FastAPI intentionally uses Depends() in function signatures.
+    "B008",
+]
+
+[lint.per-file-ignores]
+"app/api/routes/dashboard.py" = ["E501"]  # long inline dict is acceptable in demo
+"app/services/demo.py" = ["E501"]         # long inline demo data strings
+
+[format]
+quote-style = "double"
+indent-style = "space"
