@@ -14,6 +14,8 @@ COPY . .
 # Switch to non-root user
 USER appuser
 
-EXPOSE 8000
+# Railway injects PORT at runtime; fall back to 8000 for local use
+ENV PORT=8000
+EXPOSE $PORT
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD sh -c "uvicorn app.main:app --host 0.0.0.0 --port ${PORT}"
